@@ -1,8 +1,6 @@
 import './App.css'
 
-function App() {
-
-
+function App () {
   return (
     <>
       <h1> funciona </h1>
