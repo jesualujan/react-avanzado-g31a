@@ -6,7 +6,7 @@ import { createContext, useState, useEffect } from 'react'
 import canciones from '../Utils/listaCanciones.json'
 
 //* 1) Crear contexto
-const SongContext = createContext() //* va a empezar vaío mi contexto
+const SongContext = createContext() //* va a empezar vacío mi contexto
 
 //* 2) Creamos el proveedor del contexto, es decir maneja de donde se obtiene la info
 //* y como se comparte
