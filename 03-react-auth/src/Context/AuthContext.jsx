@@ -35,14 +35,14 @@ const logout = () => {
 }
 
 useEffect (() => {
-    // recuperar el token del localStorage, si no existe devolverá null
-const token = localStorage.getItem('token') // recuperar token 
-if(token){
-    const decode = jwtDecode(token) 
-    setUserPayload(decode)
-    setIsAuth(true)
-}
-}, [])
+   // reperar el token del localStorage, si no existe devolvera null
+   const token = localStorage.getItem('token') // para recuperar token es con geItem, para guardar es con setItem
+   if (token) {
+     const decode = jwtDecode(token) // decodifica el payload del token
+     setUserPayload(decode)
+     setIsAuth(true)
+   }
+ }, [])
 
   // mandamos un objeto
   const data = {
@@ -52,14 +52,12 @@ if(token){
     logout
   }
 
-
-return (
-    // El proveedor es un componente que va a envolver a otros componentes
-      <AuthContext.Provider value={data}>
-        {children}
+  // El proveedor es un componente que va a envolver a otros componentes
+  return (
+    <AuthContext.Provider value={data}>
+      {children}
       </AuthContext.Provider>
-    )
-
+  )
 }
 
 export { AuthContext, AuthProvider }
