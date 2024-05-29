@@ -17,7 +17,8 @@ const Login = () => {
       if (response.status === 200){
         navigate('/')
         console.log('Usuario autenticado exitosamente')
-       login(response.data.token) // utilizar login del contexto y decodificar el token en el navegador
+        login(response.data.token) // utilizar login del contexto y decodificar el token en el navegador
+        //console.log(response.data.token)
       }
     }catch(error) {
       console.log('Ocurrio un error en Login', error)
