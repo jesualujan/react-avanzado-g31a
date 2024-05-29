@@ -1,8 +1,11 @@
 import { NavLink } from 'react-router-dom'
+import { useAuthContext } from '@/Hook/useAuthContext'
 import './header.scss';
 
 const Header = () => {
   const linkIsActive = (isActive) => isActive ? 'header__item-link header__item-link--is-active' : 'header__item-link'
+  const { logout, isAuth } = useAuthContext()
+
 
   return (
     <>
@@ -15,25 +18,29 @@ const Header = () => {
             <NavLink className={({ isActive }) => linkIsActive(isActive)} to="/home"> Home </NavLink>
           </li>
           <li className="header__list-item">
-            <NavLink className={({ isActive }) => linkIsActive(isActive)} to="/dashboard">
-              Dashboard
-            </NavLink>
+            <NavLink className={({ isActive }) => linkIsActive(isActive)} to="/dashboard">Dashboard</NavLink>
+          </li>
+        { isAuth
+          ?(
+            <>
+          <li className="header__list-item">
+            <NavLink className={({ isActive }) => linkIsActive(isActive)} to="/secret">Secret</NavLink>
           </li>
           <li className="header__list-item">
-            <NavLink className={({ isActive }) => linkIsActive(isActive)} to="/secret">
-              Secret
-            </NavLink>
+            <NavLink className='header__item-link' onClick={logout}>Logout</NavLink>
+          </li>
+            </>
+          )
+          :(
+            <>
+             <li className="header__list-item">
+            <NavLink className={({ isActive }) => linkIsActive(isActive)} to="/login">Login</NavLink>
           </li>
           <li className="header__list-item">
-            <NavLink className={({ isActive }) => linkIsActive(isActive)} to="/login">
-              Login
-            </NavLink>
+            <NavLink className={({ isActive }) => linkIsActive(isActive)} to="/signup">Signup</NavLink>
           </li>
-          <li className="header__list-item">
-            <NavLink className={({ isActive }) => linkIsActive(isActive)} to="/signup">
-              Signup
-            </NavLink>
-          </li>
+            </>
+          )}
         </ul>
       </nav>
     </>
