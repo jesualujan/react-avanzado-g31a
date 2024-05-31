@@ -29,7 +29,7 @@ const Login = () => {
     <main className='form-signin w-100 m-auto'>
       <form onSubmit={handleSubmit(onSubmit)}>
         <img
-          className='mb-4'
+          className='mb-4 logo-react'
           src={logo}
           alt=''
           width={72}
