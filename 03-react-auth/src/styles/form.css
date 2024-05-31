@@ -26,7 +26,7 @@
     border-top-right-radius: 0;
   }
   
-  img{
+  .logo-react{
     margin-top: 10px;
     margin-left: 100px;
     animation: rotation 2s linear infinite;
